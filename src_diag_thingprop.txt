@@ -1,0 +1,8 @@
+digraph _logic_thingprop {
+rankdir=LR;
+node [shape = circle]; upload scrape;
+node [shape = octagon]; crash;
+node [shape = point]; _s_s;
+_s_s -> scrape;
+scrape -> upload [ label = "(1) scrape\\\\System . out . println ( \" SCRAPED \" ) ; "];
+}

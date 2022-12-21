@@ -1,0 +1,4 @@
+[thingprop]AUTOMATON::> thingprop() STATE::>scrape
+SCRAPED
+[thingprop]MOVED ON METHODCALL: boolean main.Executor.scrape() TO STATE::> upload
+[thingprop]AUTOMATON::> thingprop() STATE::>upload

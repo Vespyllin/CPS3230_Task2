@@ -1,0 +1,25 @@
+GLOBAL {
+	EVENTS{
+		scrape() = {*.scrape()}
+		uploadResults() = {*.uploadResults()}
+	}
+	
+	PROPERTY thingprop{
+		STATES{
+			BAD{
+				crash
+			}
+			NORMAL{
+				upload
+			}
+			STARTING{
+				scrape
+
+			}
+		}
+		
+		TRANSITIONS {
+			scrape -> upload [scrape\\System.out.println("SCRAPED");]
+		}
+	}
+}

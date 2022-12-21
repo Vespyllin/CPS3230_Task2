@@ -89,7 +89,7 @@ else if (no_automata < 0)
 }catch(Exception ex){ex.printStackTrace();}
 }
 
-int _state_id_badLoginsProperty = 11;
+int _state_id_badLoginsProperty = 65;
 
 public void _performLogic_badLoginsProperty(String _info, int... _event) {
 
@@ -97,45 +97,45 @@ _cls_logins0.pw.println("[badLoginsProperty]AUTOMATON::> badLoginsProperty("+") 
 _cls_logins0.pw.flush();
 
 if (0==1){}
-else if (_state_id_badLoginsProperty==11){
+else if (_state_id_badLoginsProperty==65){
 		if (1==0){}
-		else if ((_occurredEvent(_event,20/*goodLogin*/))){
+		else if ((_occurredEvent(_event,106/*goodLogin*/))){
 		badLogins =0 ;
 _cls_logins0.pw .println ("Good login observed. Bad logins: "+badLogins );
 
-		_state_id_badLoginsProperty = 11;//moving to state unblocked
+		_state_id_badLoginsProperty = 65;//moving to state unblocked
 		_goto_badLoginsProperty(_info);
 		}
-		else if ((_occurredEvent(_event,18/*badLogin*/)) && (badLogins <2 )){
+		else if ((_occurredEvent(_event,104/*badLogin*/)) && (badLogins <2 )){
 		badLogins ++;
 _cls_logins0.pw .println ("Bad login observed. Bad logins: "+badLogins );
 
-		_state_id_badLoginsProperty = 11;//moving to state unblocked
+		_state_id_badLoginsProperty = 65;//moving to state unblocked
 		_goto_badLoginsProperty(_info);
 		}
-		else if ((_occurredEvent(_event,18/*badLogin*/)) && (badLogins ==2 )){
+		else if ((_occurredEvent(_event,104/*badLogin*/)) && (badLogins ==2 )){
 		badLogins ++;
 lockedTime .reset ();
 _cls_logins0.pw .println ("Bad login observed. Bad logins: "+badLogins );
 
-		_state_id_badLoginsProperty = 10;//moving to state blocked
+		_state_id_badLoginsProperty = 64;//moving to state blocked
 		_goto_badLoginsProperty(_info);
 		}
 }
-else if (_state_id_badLoginsProperty==10){
+else if (_state_id_badLoginsProperty==64){
 		if (1==0){}
-		else if ((_occurredEvent(_event,22/*unlockAccount*/)) && (locked ==false &&lockedTime .compareTo (10 )<0 )){
+		else if ((_occurredEvent(_event,108/*unlockAccount*/)) && (locked ==false &&lockedTime .compareTo (10 )<0 )){
 		badLogins =0 ;
 _cls_logins0.pw .println ("Unblocked prematurely! Entering bad state!");
 
-		_state_id_badLoginsProperty = 9;//moving to state unlockedPrematurely
+		_state_id_badLoginsProperty = 63;//moving to state unlockedPrematurely
 		_goto_badLoginsProperty(_info);
 		}
-		else if ((_occurredEvent(_event,22/*unlockAccount*/)) && (locked ==false &&lockedTime .compareTo (10 )>=0 )){
+		else if ((_occurredEvent(_event,108/*unlockAccount*/)) && (locked ==false &&lockedTime .compareTo (10 )>=0 )){
 		badLogins =0 ;
 _cls_logins0.pw .println ("Going back to unblocked.");
 
-		_state_id_badLoginsProperty = 11;//moving to state unblocked
+		_state_id_badLoginsProperty = 65;//moving to state unblocked
 		_goto_badLoginsProperty(_info);
 		}
 }
@@ -148,9 +148,9 @@ _cls_logins0.pw.flush();
 
 public String _string_badLoginsProperty(int _state_id, int _mode){
 switch(_state_id){
-case 11: if (_mode == 0) return "unblocked"; else return "unblocked";
-case 10: if (_mode == 0) return "blocked"; else return "blocked";
-case 9: if (_mode == 0) return "unlockedPrematurely"; else return "!!!SYSTEM REACHED BAD STATE!!! unlockedPrematurely "+new _BadStateExceptionlogins().toString()+" ";
+case 65: if (_mode == 0) return "unblocked"; else return "unblocked";
+case 64: if (_mode == 0) return "blocked"; else return "blocked";
+case 63: if (_mode == 0) return "unlockedPrematurely"; else return "!!!SYSTEM REACHED BAD STATE!!! unlockedPrematurely "+new _BadStateExceptionlogins().toString()+" ";
 default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
 }
 }
