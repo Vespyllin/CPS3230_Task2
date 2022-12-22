@@ -18,8 +18,8 @@ before () : (call(* *.postAlert(..)) && !cflow(adviceexecution()) && !cflow(with
 synchronized(_asp_newmon0.lock){
 
 _cls_newmon0 _cls_inst = _cls_newmon0._get_cls_newmon0_inst();
-_cls_inst._call(thisJoinPoint.getSignature().toString(), 236/*postAlert*/);
-_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 236/*postAlert*/);
+_cls_inst._call(thisJoinPoint.getSignature().toString(), 244/*postAlert*/);
+_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 244/*postAlert*/);
 }
 }
 before () : (call(* *.uploadResults(..)) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*))) {
@@ -27,8 +27,8 @@ before () : (call(* *.uploadResults(..)) && !cflow(adviceexecution()) && !cflow(
 synchronized(_asp_newmon0.lock){
 
 _cls_newmon0 _cls_inst = _cls_newmon0._get_cls_newmon0_inst();
-_cls_inst._call(thisJoinPoint.getSignature().toString(), 234/*uploadResults*/);
-_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 234/*uploadResults*/);
+_cls_inst._call(thisJoinPoint.getSignature().toString(), 242/*uploadResults*/);
+_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 242/*uploadResults*/);
 }
 }
 before () : (call(* *.purgeAlerts(..)) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*))) {
@@ -36,8 +36,8 @@ before () : (call(* *.purgeAlerts(..)) && !cflow(adviceexecution()) && !cflow(wi
 synchronized(_asp_newmon0.lock){
 
 _cls_newmon0 _cls_inst = _cls_newmon0._get_cls_newmon0_inst();
-_cls_inst._call(thisJoinPoint.getSignature().toString(), 238/*purgeAlerts*/);
-_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 238/*purgeAlerts*/);
+_cls_inst._call(thisJoinPoint.getSignature().toString(), 246/*purgeAlerts*/);
+_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 246/*purgeAlerts*/);
 }
 }
 before () : (call(* *.scrape(..)) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*))) {
@@ -45,8 +45,8 @@ before () : (call(* *.scrape(..)) && !cflow(adviceexecution()) && !cflow(within(
 synchronized(_asp_newmon0.lock){
 
 _cls_newmon0 _cls_inst = _cls_newmon0._get_cls_newmon0_inst();
-_cls_inst._call(thisJoinPoint.getSignature().toString(), 232/*scrape*/);
-_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 232/*scrape*/);
+_cls_inst._call(thisJoinPoint.getSignature().toString(), 240/*scrape*/);
+_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 240/*scrape*/);
 }
 }
 }
