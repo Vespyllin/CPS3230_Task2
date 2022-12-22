@@ -9,7 +9,7 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 
-public class API_Handler {
+public class ApiHandler {
 	private final String apiUrl = "https://api.marketalertum.com/Alert";
     private final String uniqueId = "51b41f93-16e7-4def-b348-lc97b0d6a8b25";
     String lastResponse;

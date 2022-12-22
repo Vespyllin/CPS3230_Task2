@@ -4,10 +4,10 @@ import java.io.IOException;
 
 public class Executor {
 	 	private EbayScraper scraper;
-	    private API_Handler apiInterface;
+	    private ApiHandler apiInterface;
 	    private ItemData[] results;
 
-	    public Executor(EbayScraper scraper, API_Handler apiInterface) {
+	    public Executor(EbayScraper scraper, ApiHandler apiInterface) {
 	        this.scraper = scraper;
 	        this.apiInterface = apiInterface;
 	    }
@@ -27,14 +27,15 @@ public class Executor {
 	        return results;
 	    }
 
-	    public int uploadResults() throws IOException {
-	        int validResponses = 0;
+	    public boolean uploadResults() throws IOException {
 	        for (ItemData result : results) {
-	            if (apiInterface.postAlert(result, AlertEnum.Electronics.ordinal())) {
-	                validResponses++;
-	            }
+	            if (!apiInterface.postAlert(result, AlertEnum.Electronics.ordinal())) return false;
 	        }
 
-	        return validResponses;
+	        return true;
+	    }
+
+	    public boolean cleanAlerts() throws IOException {
+	        return apiInterface.purgeAlerts();
 	    }
 }

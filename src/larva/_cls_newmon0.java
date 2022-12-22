@@ -24,6 +24,7 @@ _cls_newmon0_instances.put(root, root);
 
 _cls_newmon0 parent; //to remain null - this class does not have a parent!
 int no_automata = 1;
+ public int postCount =0 ;
 
 public static void initialize(){}
 //inheritance could not be used because of the automatic call to super()
@@ -81,7 +82,7 @@ else if (no_automata < 0)
 }catch(Exception ex){ex.printStackTrace();}
 }
 
-int _state_id_thingprop = 62;
+int _state_id_thingprop = 150;
 
 public void _performLogic_thingprop(String _info, int... _event) {
 
@@ -89,12 +90,43 @@ _cls_newmon0.pw.println("[thingprop]AUTOMATON::> thingprop("+") STATE::>"+ _stri
 _cls_newmon0.pw.flush();
 
 if (0==1){}
-else if (_state_id_thingprop==62){
+else if (_state_id_thingprop==150){
 		if (1==0){}
-		else if ((_occurredEvent(_event,100/*scrape*/))){
+		else if ((_occurredEvent(_event,232/*scrape*/))){
 		_cls_newmon0.pw .println ("SCRAPED");
 
-		_state_id_thingprop = 61;//moving to state upload
+		_state_id_thingprop = 148;//moving to state upload
+		_goto_thingprop(_info);
+		}
+}
+else if (_state_id_thingprop==149){
+		if (1==0){}
+		else if ((_occurredEvent(_event,236/*postAlert*/))){
+		postCount ++;
+_cls_newmon0.pw .println ("POST "+postCount );
+
+		_state_id_thingprop = 149;//moving to state post
+		_goto_thingprop(_info);
+		}
+		else if ((_occurredEvent(_event,238/*purgeAlerts*/)) && (postCount ==5 )){
+		_cls_newmon0.pw .println ("Attempted purge at "+postCount );
+
+		_state_id_thingprop = 146;//moving to state purge
+		_goto_thingprop(_info);
+		}
+		else if ((_occurredEvent(_event,238/*purgeAlerts*/)) && (postCount !=5 )){
+		_cls_newmon0.pw .println ("INVALID STATE: Attempted purge at "+postCount );
+
+		_state_id_thingprop = 147;//moving to state missingUpload
+		_goto_thingprop(_info);
+		}
+}
+else if (_state_id_thingprop==148){
+		if (1==0){}
+		else if ((_occurredEvent(_event,234/*uploadResults*/))){
+		_cls_newmon0.pw .println ("UPLOAD");
+
+		_state_id_thingprop = 149;//moving to state post
 		_goto_thingprop(_info);
 		}
 }
@@ -107,9 +139,11 @@ _cls_newmon0.pw.flush();
 
 public String _string_thingprop(int _state_id, int _mode){
 switch(_state_id){
-case 62: if (_mode == 0) return "scrape"; else return "scrape";
-case 61: if (_mode == 0) return "upload"; else return "upload";
-case 60: if (_mode == 0) return "crash"; else return "!!!SYSTEM REACHED BAD STATE!!! crash "+new _BadStateExceptionnewmon().toString()+" ";
+case 150: if (_mode == 0) return "scrape"; else return "scrape";
+case 149: if (_mode == 0) return "post"; else return "post";
+case 148: if (_mode == 0) return "upload"; else return "upload";
+case 147: if (_mode == 0) return "missingUpload"; else return "!!!SYSTEM REACHED BAD STATE!!! missingUpload "+new _BadStateExceptionnewmon().toString()+" ";
+case 146: if (_mode == 0) return "purge"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  purge";
 default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
 }
 }

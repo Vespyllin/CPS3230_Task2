@@ -1,25 +1,40 @@
 GLOBAL {
+	VARIABLES{
+		int postCount = 0;
+	}
+	
 	EVENTS{
 		scrape() = {*.scrape()}
 		uploadResults() = {*.uploadResults()}
+		postAlert() = {*.postAlert()}
+		purgeAlerts() = {*.purgeAlerts()}
 	}
 	
+%%	TODO: DEFINE API CALL IN MONITOR TO CHECK STATE
+
 	PROPERTY thingprop{
 		STATES{
+			ACCEPTING{
+				purge
+			}
 			BAD{
-				crash
+				missingUpload
 			}
 			NORMAL{
 				upload
+				post
 			}
 			STARTING{
 				scrape
-
 			}
 		}
 		
 		TRANSITIONS {
 			scrape -> upload [scrape\\System.out.println("SCRAPED");]
+			upload -> post [uploadResults\\System.out.println("UPLOAD");]
+			post -> post [postAlert\\postCount++;System.out.println("POST " + postCount);]
+			post -> purge [purgeAlerts\postCount==5\System.out.println("Attempted purge at " + postCount);]
+			post -> missingUpload [purgeAlerts\postCount!=5\System.out.println("INVALID STATE: Attempted purge at " + postCount);]
 		}
 	}
 }
