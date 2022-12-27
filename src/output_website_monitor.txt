@@ -1,1 +1,0 @@
-[thingprop]AUTOMATON::> thingprop() STATE::>init

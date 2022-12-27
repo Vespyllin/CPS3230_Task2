@@ -1,6 +1,6 @@
 package main;
 
-public class Runner {
+public class MonitoredRunner {
 	public static void main(String[] args) {
 		final ApiHandler handler = new ApiHandler();
 		final EbayScraper scraper = new EbayScraper();

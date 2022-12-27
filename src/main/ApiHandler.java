@@ -14,14 +14,14 @@ import org.apache.hc.core5.http.io.entity.StringEntity;
 import com.google.gson.Gson;
 
 public class ApiHandler {
-	private final String apiUrl = "https://api.marketalertum.com";
+	private final String apiUrl = "https://api.marketalertum.com/";
     private final String uniqueId = "51b41f93-16e7-4def-b348-lc97b0d6a8b25";
     String lastResponse;
     
     
     public boolean postAlert(ItemData itemData, int alertType) throws IOException {
         CloseableHttpClient client = HttpClients.createDefault();
-        HttpPost httpPost = new HttpPost(apiUrl + "/Alert");
+        HttpPost httpPost = new HttpPost(apiUrl + "Alert");
 
         String jsonString = "{" +
                 "\"alertType\": " + alertType + "," +
@@ -43,9 +43,8 @@ public class ApiHandler {
         httpPost.setHeader("Content-type", "application/json");
 
         try {
-//            CloseableHttpResponse response = client.execute(httpPost);
-//            return (response.getCode() == 201);
-        	return true;
+            CloseableHttpResponse response = client.execute(httpPost);
+            return (response.getCode() == 201);
         } catch (Exception e) {
             System.out.println(jsonString);
             return false;
@@ -58,7 +57,7 @@ public class ApiHandler {
     public boolean purgeAlerts() throws IOException {
 
         CloseableHttpClient client = HttpClients.createDefault();
-        HttpDelete httpDelete = new HttpDelete(apiUrl + "/Alert?userId=" + uniqueId);
+        HttpDelete httpDelete = new HttpDelete(apiUrl + "Alert?userId=" + uniqueId);
 
         try {
             CloseableHttpResponse response = client.execute(httpDelete);
@@ -74,7 +73,7 @@ public class ApiHandler {
     public EventTrace[] getTraces() {
 
         CloseableHttpClient client = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet(apiUrl + "/EventsLog/" + uniqueId);
+        HttpGet httpGet = new HttpGet(apiUrl + "EventsLog/" + uniqueId);
         
         EventTrace[] emptyTrace = new EventTrace[0];
         Gson gson = new Gson();

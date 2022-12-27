@@ -7,13 +7,13 @@ GLOBAL {
 	VARIABLES{
 		ApiHandler apiHandler = new ApiHandler();
 		EventTrace[] traces;
-		EventTrace lastTrace = null;
+		EventTrace lastTrace;
 	}
 
 	EVENTS{
 		goToSite() = {*.goToSite()}
 		goToAlerts() = {*.goToAlerts()}
-		login() = {*.login()}
+		login() = {*.loginValid()}
 		logout() = {*.logout()}
 		teardown() = {*.teardown()}
 	}
@@ -61,10 +61,10 @@ GLOBAL {
 			[
 				logout
 				\
-				lastTrace.eventLogType == 7
+				lastTrace != null && lastTrace.eventLogType == 7
 				\
 				traces = apiHandler.getTraces();
-				lastTrace = traces[traces.length-1];
+				lastTrace = traces.length == 0? null : traces[traces.length-1];
 				System.out.println("Logout");
 			]
 			
@@ -72,7 +72,7 @@ GLOBAL {
 			[
 				teardown
 				\
-				lastTrace.eventLogType == 6
+				lastTrace != null && lastTrace.eventLogType == 6
 				\
 				System.out.println("Teardown");
 			]
