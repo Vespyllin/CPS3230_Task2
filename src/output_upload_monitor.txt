@@ -1,0 +1,26 @@
+[thingprop]AUTOMATON::> thingprop() STATE::>scrape
+SCRAPED
+[thingprop]MOVED ON METHODCALL: boolean main.Executor.scrape() TO STATE::> upload
+[thingprop]AUTOMATON::> thingprop() STATE::>upload
+UPLOAD
+[thingprop]MOVED ON METHODCALL: boolean main.Executor.uploadResults() TO STATE::> post
+[thingprop]AUTOMATON::> thingprop() STATE::>post
+POST 1
+[thingprop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
+[thingprop]AUTOMATON::> thingprop() STATE::>checkPost
+[thingprop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
+[thingprop]AUTOMATON::> thingprop() STATE::>post
+INVALID STATE: Attempted to post 2/0 times.
+[thingprop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> !!!SYSTEM REACHED BAD STATE!!! badUpload 
+aspects._asp_upload_monitor0.ajc$before$aspects__asp_upload_monitor0$2$4984d21d(_asp_upload_monitor0.aj:25)
+main.Executor.uploadResults(Executor.java:33)
+main.Runner.main(Runner.java:13) 
+[thingprop]AUTOMATON::> thingprop() STATE::>badUpload
+[thingprop]AUTOMATON::> thingprop() STATE::>badUpload
+[thingprop]AUTOMATON::> thingprop() STATE::>badUpload
+[thingprop]AUTOMATON::> thingprop() STATE::>badUpload
+[thingprop]AUTOMATON::> thingprop() STATE::>badUpload
+[thingprop]AUTOMATON::> thingprop() STATE::>badUpload
+[thingprop]AUTOMATON::> thingprop() STATE::>badUpload
+[thingprop]AUTOMATON::> thingprop() STATE::>badUpload
+[thingprop]AUTOMATON::> thingprop() STATE::>badUpload

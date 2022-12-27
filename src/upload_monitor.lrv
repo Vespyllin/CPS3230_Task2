@@ -1,0 +1,93 @@
+IMPORTS {
+	import main.ApiHandler;
+	import main.EventTrace;
+}
+
+GLOBAL {	
+	VARIABLES{
+		int postCount = 0;
+		int confirmedAlertCount = 0;
+		ApiHandler apiHandler = new ApiHandler();	
+		EventTrace[] traces;
+		EventTrace lastTrace = null;
+	}
+	
+	EVENTS{
+		scrape() = {*.scrape()}
+		uploadResults() = {*.uploadResults()}
+		postAlert() = {*.postAlert()}
+		purgeAlerts() = {*.purgeAlerts()}
+		close() = {*.close()}
+	}
+
+	PROPERTY thingprop{
+		STATES{
+			ACCEPTING{
+				purge
+				terminate
+			}
+			BAD{
+				badUpload
+			}
+			NORMAL{
+				upload
+				checkPost
+				post
+			}
+			STARTING{
+				scrape
+			}
+		}
+		
+		TRANSITIONS {
+			scrape -> upload [scrape\\System.out.println("SCRAPED");]
+			upload -> post [uploadResults\\System.out.println("UPLOAD");]
+
+			post -> checkPost
+			[
+				postAlert
+				\
+				postCount < 5 && postCount == confirmedAlertCount
+				\
+				postCount++;
+				System.out.println("POST " + postCount);
+			]
+
+			%% After closing POST request, update state using the API
+			checkPost -> post
+			[
+				close
+				\\
+				traces = apiHandler.getTraces();
+				lastTrace = traces[traces.length-1];
+				confirmedAlertCount = lastTrace.systemState.alerts.length;
+			]
+
+			post -> badUpload 
+			[
+				postAlert
+				\\
+				postCount++;
+				System.out.println("INVALID STATE: Attempted to post " + postCount + "times, " + confirmedAlertCount + " received.");
+			]
+			
+			post -> purge 
+			[
+				purgeAlerts
+				\
+				postCount==5 && postCount == confirmedAlertCount
+				\
+				System.out.println("Attempted purge after " + postCount + " posts.");
+			]
+
+			post -> badUpload 
+			[
+				purgeAlerts
+				\
+				postCount==5 && postCount == confirmedAlertCount
+				\
+				System.out.println("INVALID STATE: Attempted to purge after " + postCount + "post/s, " + confirmedAlertCount + " received.");
+			]
+		}
+	}
+}

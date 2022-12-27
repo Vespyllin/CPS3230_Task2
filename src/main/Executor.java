@@ -30,7 +30,7 @@ public class Executor {
 
 	    public boolean uploadResults() throws IOException {
 	        for (ItemData result : results) {
-	            if (!apiInterface.postAlert(result, AlertEnum.Electronics.ordinal())) return false;
+	        	if (!apiInterface.postAlert(result, AlertEnum.Electronics.ordinal())) return false;
 	        }
 
 	        return true;

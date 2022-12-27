@@ -1,0 +1,81 @@
+IMPORTS {
+	import main.ApiHandler;
+	import main.EventTrace;
+}
+
+GLOBAL {	
+	VARIABLES{
+		ApiHandler apiHandler = new ApiHandler();
+		EventTrace[] traces;
+		EventTrace lastTrace = null;
+	}
+
+	EVENTS{
+		goToSite() = {*.goToSite()}
+		goToAlerts() = {*.goToAlerts()}
+		login() = {*.login()}
+		logout() = {*.logout()}
+		teardown() = {*.teardown()}
+	}
+
+	PROPERTY thingprop{
+		STATES{
+			ACCEPTING{
+				exit
+				cleanup
+			}
+			NORMAL{
+				loggedOut
+				loggedIn
+				atAlerts
+			}
+			STARTING{
+				init
+			}
+		}
+		
+		TRANSITIONS {
+			init -> loggedOut [goToSite\\System.out.println("Navigating to site");]
+
+			loggedOut -> loggedIn 
+			[
+				login
+				\\
+				traces = apiHandler.getTraces();
+				lastTrace = traces[traces.length-1];
+				System.out.println("Login");
+			]
+
+			loggedIn -> atAlerts 
+			[
+				goToAlerts
+				\
+				lastTrace.eventLogType == 5
+				\
+				traces = apiHandler.getTraces();
+				lastTrace = traces[traces.length-1];
+				System.out.println("Navigating to Alerts");
+			]
+
+			atAlerts -> loggedOut 
+			[
+				logout
+				\
+				lastTrace.eventLogType == 7
+				\
+				traces = apiHandler.getTraces();
+				lastTrace = traces[traces.length-1];
+				System.out.println("Logout");
+			]
+			
+			loggedOut -> cleanup 
+			[
+				teardown
+				\
+				lastTrace.eventLogType == 6
+				\
+				System.out.println("Teardown");
+			]
+		}
+	}
+}

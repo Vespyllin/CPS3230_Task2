@@ -1,13 +1,14 @@
 digraph _logic_thingprop {
 rankdir=LR;
-node [shape = doublecircle]; purge;
-node [shape = circle]; upload post scrape;
-node [shape = octagon]; missingUpload;
+node [shape = doublecircle]; acceptableUpload terminate;
+node [shape = circle]; purge upload checkPost post scrape;
+node [shape = octagon]; badUpload;
 node [shape = point]; _s_s;
 _s_s -> scrape;
 scrape -> upload [ label = "(1) scrape\\\\System . out . println ( \" SCRAPED \" ) ; "];
-post -> post [ label = "(1) postAlert\\\\postCount ++ ; System . out . println ( \" POST  \" + postCount ) ; "];
-post -> purge [ label = "(2) purgeAlerts\\postCount == 5 \\System . out . println ( \" Attempted purge at  \" + postCount ) ; "];
-post -> missingUpload [ label = "(3) purgeAlerts\\postCount != 5 \\System . out . println ( \" INVALID STATE: Attempted purge at  \" + postCount ) ; "];
+post -> checkPost [ label = "(1) postAlert\\postCount < 5 && postCount == confirmedAlertCount \\postCount ++ ; System . out . println ( \" POST  \" + postCount ) ; "];
+post -> badUpload [ label = "(2) postAlert\\\\postCount ++ ; System . out . println ( \" INVALID STATE: Attempted to post  \" + postCount + \" times,  \" + confirmedAlertCount + \"  received. \" ) ; "];
+post -> purge [ label = "(3) purgeAlerts\\postCount == 5 && postCount == confirmedAlertCount \\System . out . println ( \" Attempted purge after  \" + postCount + \"  posts. \" ) ; "];
 upload -> post [ label = "(1) uploadResults\\\\System . out . println ( \" UPLOAD \" ) ; "];
+checkPost -> post [ label = "(1) close\\\\traces = apiHandler . getTraces ( ) ; lastTrace = traces [ traces . length - 1 ] ; confirmedAlertCount = lastTrace . systemState . alerts . length ; "];
 }

@@ -101,5 +101,6 @@
 	<classpathentry kind="lib" path="C:/Users/Mystech/Desktop/selenium-java-4.7.2/selenium-safari-driver-4.7.2-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Mystech/Desktop/selenium-java-4.7.2/selenium-support-4.7.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Mystech/Desktop/selenium-java-4.7.2/selenium-support-4.7.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mystech/Desktop/gson/gson-2.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

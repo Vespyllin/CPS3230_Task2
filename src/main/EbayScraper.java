@@ -17,14 +17,13 @@ public class EbayScraper {
 
 	    public EbayScraper() {
 	        System.setProperty("webdriver.chrome.driver", "C://Users//Mystech//Desktop//chromedriver.exe");
-
-	        driver = new ChromeDriver();
-	        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-	        driver.manage().window().maximize();
 	    }
 
 	    public boolean loadEbay() {
 	        try {
+	        	driver = new ChromeDriver();
+		        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		        driver.manage().window().maximize();
 	            driver.get(ebayUrl);
 	            return true;
 	        } catch (Exception e) {
