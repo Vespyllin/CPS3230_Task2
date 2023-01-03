@@ -3,6 +3,7 @@ package larva;
 
 import main.ApiHandler;
 import main.EventTrace;
+import main.MonitorFunctions;
 
 import java.util.LinkedHashMap;
 import java.io.PrintWriter;
@@ -27,6 +28,7 @@ _cls_website_monitor0_instances.put(root, root);
 
 _cls_website_monitor0 parent; //to remain null - this class does not have a parent!
 int no_automata = 1;
+ public MonitorFunctions f =new MonitorFunctions ();
  public ApiHandler apiHandler =new ApiHandler ();
  public EventTrace[] traces ;
  public EventTrace lastTrace ;
@@ -87,7 +89,7 @@ else if (no_automata < 0)
 }catch(Exception ex){ex.printStackTrace();}
 }
 
-int _state_id_thingprop = 108;
+int _state_id_thingprop = 155;
 
 public void _performLogic_thingprop(String _info, int... _event) {
 
@@ -95,51 +97,52 @@ _cls_website_monitor0.pw.println("[thingprop]AUTOMATON::> thingprop("+") STATE::
 _cls_website_monitor0.pw.flush();
 
 if (0==1){}
-else if (_state_id_thingprop==108){
+else if (_state_id_thingprop==155){
 		if (1==0){}
-		else if ((_occurredEvent(_event,170/*goToSite*/))){
-		_cls_website_monitor0.pw .println ("Navigating to site");
+		else if ((_occurredEvent(_event,250/*goToSite*/))){
+		f .getLastEventType ();
+_cls_website_monitor0.pw .println ("Navigating to site");
 
-		_state_id_thingprop = 105;//moving to state loggedOut
+		_state_id_thingprop = 152;//moving to state loggedOut
 		_goto_thingprop(_info);
 		}
 }
-else if (_state_id_thingprop==106){
+else if (_state_id_thingprop==153){
 		if (1==0){}
-		else if ((_occurredEvent(_event,172/*goToAlerts*/)) && (lastTrace .eventLogType ==5 )){
-		traces =apiHandler .getTraces ();
-lastTrace =traces [traces .length -1 ];
-_cls_website_monitor0.pw .println ("Navigating to Alerts");
+		else if ((_occurredEvent(_event,252/*goToAlerts*/)) && (f .getLastEventType ()==5 )){
+		_cls_website_monitor0.pw .println ("Viewed alerts");
 
-		_state_id_thingprop = 107;//moving to state atAlerts
+		_state_id_thingprop = 154;//moving to state atAlerts
+		_goto_thingprop(_info);
+		}
+		else if ((_occurredEvent(_event,252/*goToAlerts*/))){
+		_cls_website_monitor0.pw .println ("INVALID LOGIN");
+
+		_state_id_thingprop = 154;//moving to state atAlerts
 		_goto_thingprop(_info);
 		}
 }
-else if (_state_id_thingprop==105){
+else if (_state_id_thingprop==152){
 		if (1==0){}
-		else if ((_occurredEvent(_event,174/*login*/))){
-		traces =apiHandler .getTraces ();
-lastTrace =traces [traces .length -1 ];
-_cls_website_monitor0.pw .println ("Login");
+		else if ((_occurredEvent(_event,254/*login*/))){
+		_cls_website_monitor0.pw .println ("Login");
 
-		_state_id_thingprop = 106;//moving to state loggedIn
+		_state_id_thingprop = 153;//moving to state loggedIn
 		_goto_thingprop(_info);
 		}
-		else if ((_occurredEvent(_event,178/*teardown*/)) && (lastTrace !=null &&lastTrace .eventLogType ==6 )){
+		else if ((_occurredEvent(_event,258/*teardown*/)) && (f .getLastEventType ()==6 )){
 		_cls_website_monitor0.pw .println ("Teardown");
 
-		_state_id_thingprop = 104;//moving to state cleanup
+		_state_id_thingprop = 151;//moving to state cleanup
 		_goto_thingprop(_info);
 		}
 }
-else if (_state_id_thingprop==107){
+else if (_state_id_thingprop==154){
 		if (1==0){}
-		else if ((_occurredEvent(_event,176/*logout*/)) && (lastTrace !=null &&lastTrace .eventLogType ==7 )){
-		traces =apiHandler .getTraces ();
-lastTrace =traces .length ==0 ?null :traces [traces .length -1 ];
-_cls_website_monitor0.pw .println ("Logout");
+		else if ((_occurredEvent(_event,256/*logout*/)) && (f .getLastEventType ()==7 )){
+		_cls_website_monitor0.pw .println ("Logout");
 
-		_state_id_thingprop = 105;//moving to state loggedOut
+		_state_id_thingprop = 152;//moving to state loggedOut
 		_goto_thingprop(_info);
 		}
 }
@@ -152,12 +155,12 @@ _cls_website_monitor0.pw.flush();
 
 public String _string_thingprop(int _state_id, int _mode){
 switch(_state_id){
-case 103: if (_mode == 0) return "exit"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  exit";
-case 108: if (_mode == 0) return "init"; else return "init";
-case 104: if (_mode == 0) return "cleanup"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  cleanup";
-case 106: if (_mode == 0) return "loggedIn"; else return "loggedIn";
-case 105: if (_mode == 0) return "loggedOut"; else return "loggedOut";
-case 107: if (_mode == 0) return "atAlerts"; else return "atAlerts";
+case 150: if (_mode == 0) return "exit"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  exit";
+case 155: if (_mode == 0) return "init"; else return "init";
+case 151: if (_mode == 0) return "cleanup"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  cleanup";
+case 153: if (_mode == 0) return "loggedIn"; else return "loggedIn";
+case 152: if (_mode == 0) return "loggedOut"; else return "loggedOut";
+case 154: if (_mode == 0) return "atAlerts"; else return "atAlerts";
 default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
 }
 }

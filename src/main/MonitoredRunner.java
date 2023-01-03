@@ -18,7 +18,9 @@ public class MonitoredRunner {
 			navigator.logout();
 			
 	    } catch (Exception e) {
+	    	
 	    	System.out.println("CRASHED");
+	    	System.out.println(e);
 	    } finally {	    	
 	    	navigator.teardown();
 	    	try{	    		

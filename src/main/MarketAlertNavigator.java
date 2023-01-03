@@ -22,8 +22,9 @@ public class MarketAlertNavigator {
     }
 
     private void login(String uniqueID) {
-        WebElement logInNav = driver.findElement(By.linkText("Log In"));
+    	WebElement logInNav = driver.findElement(By.linkText("Log In"));
         logInNav.click();
+        
         WebElement idField = driver.findElement(By.id("UserId"));
         idField.sendKeys(uniqueID);
 

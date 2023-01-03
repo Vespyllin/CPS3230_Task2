@@ -1,24 +1,21 @@
 IMPORTS {
-	import main.ApiHandler;
-	import main.EventTrace;
+	import main.MonitorFunctions;
 }
 
 GLOBAL {	
 	VARIABLES{
-		ApiHandler apiHandler = new ApiHandler();
-		EventTrace[] traces;
-		EventTrace lastTrace;
+		MonitorFunctions f = new MonitorFunctions();
 	}
 
 	EVENTS{
 		goToSite() = {*.goToSite()}
 		goToAlerts() = {*.goToAlerts()}
-		login() = {*.loginValid()}
+		login() = {*.login()}
 		logout() = {*.logout()}
 		teardown() = {*.teardown()}
 	}
 
-	PROPERTY thingprop{
+	PROPERTY website_prop{
 		STATES{
 			ACCEPTING{
 				exit
@@ -35,14 +32,19 @@ GLOBAL {
 		}
 		
 		TRANSITIONS {
-			init -> loggedOut [goToSite\\System.out.println("Navigating to site");]
+			init -> loggedOut 
+			[
+				goToSite
+				\\
+				f.getLastEventType(); %% Clear previous traces
+				System.out.println("Navigating to site");
+			]
 
 			loggedOut -> loggedIn 
 			[
 				login
-				\\
-				traces = apiHandler.getTraces();
-				lastTrace = traces[traces.length-1];
+				\
+				\
 				System.out.println("Login");
 			]
 
@@ -50,29 +52,33 @@ GLOBAL {
 			[
 				goToAlerts
 				\
-				lastTrace.eventLogType == 5
+				f.getLastEventType() == 5
 				\
-				traces = apiHandler.getTraces();
-				lastTrace = traces[traces.length-1];
-				System.out.println("Navigating to Alerts");
+				System.out.println("Viewed alerts");
+			]
+
+			loggedIn -> atAlerts 
+			[
+				goToAlerts
+				\
+				\
+				System.out.println("INVALID LOGIN");
 			]
 
 			atAlerts -> loggedOut 
 			[
 				logout
 				\
-				lastTrace != null && lastTrace.eventLogType == 7
+				f.getLastEventType() == 7
 				\
-				traces = apiHandler.getTraces();
-				lastTrace = traces.length == 0? null : traces[traces.length-1];
 				System.out.println("Logout");
 			]
-			
+
 			loggedOut -> cleanup 
 			[
 				teardown
 				\
-				lastTrace != null && lastTrace.eventLogType == 6
+				f.getLastEventType() == 6
 				\
 				System.out.println("Teardown");
 			]

@@ -1,15 +1,11 @@
 IMPORTS {
-	import main.ApiHandler;
-	import main.EventTrace;
+	import main.MonitorFunctions;
 }
 
 GLOBAL {	
 	VARIABLES{
 		int postCount = 0;
-		int confirmedAlertCount = 0;
-		ApiHandler apiHandler = new ApiHandler();	
-		EventTrace[] traces;
-		EventTrace lastTrace = null;
+		MonitorFunctions f = new MonitorFunctions();
 	}
 	
 	EVENTS{
@@ -20,7 +16,7 @@ GLOBAL {
 		close() = {*.close()}
 	}
 
-	PROPERTY thingprop{
+	PROPERTY upload_prop{
 		STATES{
 			ACCEPTING{
 				purge
@@ -41,52 +37,46 @@ GLOBAL {
 		
 		TRANSITIONS {
 			scrape -> upload [scrape\\System.out.println("SCRAPED");]
-			upload -> post [uploadResults\\System.out.println("UPLOAD");]
+			upload -> post 
+			[
+				uploadResults
+				\\
+				System.out.println("UPLOAD");
+				f.getLastEventType(); %% Clear previous traces
+			]
 
 			post -> checkPost
 			[
 				postAlert
 				\
-				postCount < 5 && postCount == confirmedAlertCount
 				\
 				postCount++;
 				System.out.println("POST " + postCount);
 			]
-
-			%% After closing POST request, update state using the API
+			
 			checkPost -> post
 			[
 				close
-				\\
-				traces = apiHandler.getTraces();
-				lastTrace = traces[traces.length-1];
-				confirmedAlertCount = lastTrace.systemState.alerts.length;
+				\
+				f.getLastEventType() == 0 && postCount <= 5
+				\
 			]
 
-			post -> badUpload 
+			checkPost -> badUpload 
 			[
-				postAlert
-				\\
-				postCount++;
-				System.out.println("INVALID STATE: Attempted to post " + postCount + "times, " + confirmedAlertCount + " received.");
+				close
+				\
+				\
+				System.out.println("Bad Upload");
 			]
 			
 			post -> purge 
 			[
 				purgeAlerts
 				\
-				postCount==5 && postCount == confirmedAlertCount
+				postCount==5
 				\
 				System.out.println("Attempted purge after " + postCount + " posts.");
-			]
-
-			post -> badUpload 
-			[
-				purgeAlerts
-				\
-				postCount==5 && postCount == confirmedAlertCount
-				\
-				System.out.println("INVALID STATE: Attempted to purge after " + postCount + "post/s, " + confirmedAlertCount + " received.");
 			]
 		}
 	}

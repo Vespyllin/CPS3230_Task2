@@ -1,77 +1,35 @@
-[thingprop]AUTOMATON::> thingprop() STATE::>scrape
-[thingprop]AUTOMATON::> thingprop() STATE::>scrape
-[thingprop]AUTOMATON::> thingprop() STATE::>scrape
-[thingprop]AUTOMATON::> thingprop() STATE::>scrape
-[thingprop]AUTOMATON::> thingprop() STATE::>scrape
+[upload_prop]AUTOMATON::> upload_prop() STATE::>scrape
 SCRAPED
-[thingprop]MOVED ON METHODCALL: boolean main.Executor.scrape() TO STATE::> upload
-[thingprop]AUTOMATON::> thingprop() STATE::>upload
+[upload_prop]MOVED ON METHODCALL: boolean main.Executor.scrape() TO STATE::> upload
+[upload_prop]AUTOMATON::> upload_prop() STATE::>upload
 UPLOAD
-[thingprop]MOVED ON METHODCALL: boolean main.Executor.uploadResults() TO STATE::> post
-[thingprop]AUTOMATON::> thingprop() STATE::>post
+[upload_prop]MOVED ON METHODCALL: boolean main.Executor.uploadResults() TO STATE::> post
+[upload_prop]AUTOMATON::> upload_prop() STATE::>post
 POST 1
-[thingprop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
-[thingprop]AUTOMATON::> thingprop() STATE::>checkPost
-[thingprop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
-[thingprop]AUTOMATON::> thingprop() STATE::>post
+[upload_prop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
+[upload_prop]AUTOMATON::> upload_prop() STATE::>checkPost
+[upload_prop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
+[upload_prop]AUTOMATON::> upload_prop() STATE::>post
 POST 2
-[thingprop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
-[thingprop]AUTOMATON::> thingprop() STATE::>checkPost
-[thingprop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
-[thingprop]AUTOMATON::> thingprop() STATE::>post
+[upload_prop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
+[upload_prop]AUTOMATON::> upload_prop() STATE::>checkPost
+[upload_prop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
+[upload_prop]AUTOMATON::> upload_prop() STATE::>post
 POST 3
-[thingprop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
-[thingprop]AUTOMATON::> thingprop() STATE::>checkPost
-[thingprop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
-[thingprop]AUTOMATON::> thingprop() STATE::>post
+[upload_prop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
+[upload_prop]AUTOMATON::> upload_prop() STATE::>checkPost
+[upload_prop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
+[upload_prop]AUTOMATON::> upload_prop() STATE::>post
 POST 4
-[thingprop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
-[thingprop]AUTOMATON::> thingprop() STATE::>checkPost
-[thingprop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
-[thingprop]AUTOMATON::> thingprop() STATE::>post
+[upload_prop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
+[upload_prop]AUTOMATON::> upload_prop() STATE::>checkPost
+[upload_prop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
+[upload_prop]AUTOMATON::> upload_prop() STATE::>post
 POST 5
-[thingprop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
-[thingprop]AUTOMATON::> thingprop() STATE::>checkPost
-[thingprop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
-[thingprop]AUTOMATON::> thingprop() STATE::>post
-[thingprop]AUTOMATON::> thingprop() STATE::>post
-[thingprop]AUTOMATON::> thingprop() STATE::>post
-[thingprop]AUTOMATON::> thingprop() STATE::>post
-[thingprop]AUTOMATON::> thingprop() STATE::>post
+[upload_prop]MOVED ON METHODCALL: boolean main.ApiHandler.postAlert(ItemData, int) TO STATE::> checkPost
+[upload_prop]AUTOMATON::> upload_prop() STATE::>checkPost
+[upload_prop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
+[upload_prop]AUTOMATON::> upload_prop() STATE::>post
 Attempted purge after 5 posts.
-[thingprop]MOVED ON METHODCALL: boolean main.ApiHandler.purgeAlerts() TO STATE::> (((SYSTEM REACHED AN ACCEPTED STATE)))  purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
-[thingprop]AUTOMATON::> thingprop() STATE::>purge
+[upload_prop]MOVED ON METHODCALL: boolean main.ApiHandler.purgeAlerts() TO STATE::> (((SYSTEM REACHED AN ACCEPTED STATE)))  purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge

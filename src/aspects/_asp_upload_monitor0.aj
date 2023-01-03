@@ -1,7 +1,6 @@
 package aspects;
 
-import main.ApiHandler;
-import main.EventTrace;
+import main.MonitorFunctions;
 
 import larva.*;
 public aspect _asp_upload_monitor0 {
@@ -21,8 +20,8 @@ before () : (call(* *.postAlert(..)) && !cflow(adviceexecution()) && !cflow(with
 synchronized(_asp_upload_monitor0.lock){
 
 _cls_upload_monitor0 _cls_inst = _cls_upload_monitor0._get_cls_upload_monitor0_inst();
-_cls_inst._call(thisJoinPoint.getSignature().toString(), 184/*postAlert*/);
-_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 184/*postAlert*/);
+_cls_inst._call(thisJoinPoint.getSignature().toString(), 294/*postAlert*/);
+_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 294/*postAlert*/);
 }
 }
 before () : (call(* *.close(..)) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*))) {
@@ -30,8 +29,8 @@ before () : (call(* *.close(..)) && !cflow(adviceexecution()) && !cflow(within(l
 synchronized(_asp_upload_monitor0.lock){
 
 _cls_upload_monitor0 _cls_inst = _cls_upload_monitor0._get_cls_upload_monitor0_inst();
-_cls_inst._call(thisJoinPoint.getSignature().toString(), 188/*close*/);
-_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 188/*close*/);
+_cls_inst._call(thisJoinPoint.getSignature().toString(), 298/*close*/);
+_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 298/*close*/);
 }
 }
 before () : (call(* *.uploadResults(..)) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*))) {
@@ -39,8 +38,8 @@ before () : (call(* *.uploadResults(..)) && !cflow(adviceexecution()) && !cflow(
 synchronized(_asp_upload_monitor0.lock){
 
 _cls_upload_monitor0 _cls_inst = _cls_upload_monitor0._get_cls_upload_monitor0_inst();
-_cls_inst._call(thisJoinPoint.getSignature().toString(), 182/*uploadResults*/);
-_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 182/*uploadResults*/);
+_cls_inst._call(thisJoinPoint.getSignature().toString(), 292/*uploadResults*/);
+_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 292/*uploadResults*/);
 }
 }
 before () : (call(* *.purgeAlerts(..)) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*))) {
@@ -48,8 +47,8 @@ before () : (call(* *.purgeAlerts(..)) && !cflow(adviceexecution()) && !cflow(wi
 synchronized(_asp_upload_monitor0.lock){
 
 _cls_upload_monitor0 _cls_inst = _cls_upload_monitor0._get_cls_upload_monitor0_inst();
-_cls_inst._call(thisJoinPoint.getSignature().toString(), 186/*purgeAlerts*/);
-_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 186/*purgeAlerts*/);
+_cls_inst._call(thisJoinPoint.getSignature().toString(), 296/*purgeAlerts*/);
+_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 296/*purgeAlerts*/);
 }
 }
 before () : (call(* *.scrape(..)) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*))) {
@@ -57,8 +56,8 @@ before () : (call(* *.scrape(..)) && !cflow(adviceexecution()) && !cflow(within(
 synchronized(_asp_upload_monitor0.lock){
 
 _cls_upload_monitor0 _cls_inst = _cls_upload_monitor0._get_cls_upload_monitor0_inst();
-_cls_inst._call(thisJoinPoint.getSignature().toString(), 180/*scrape*/);
-_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 180/*scrape*/);
+_cls_inst._call(thisJoinPoint.getSignature().toString(), 290/*scrape*/);
+_cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 290/*scrape*/);
 }
 }
 }

@@ -1,8 +1,7 @@
 package larva;
 
 
-import main.ApiHandler;
-import main.EventTrace;
+import main.MonitorFunctions;
 
 import java.util.LinkedHashMap;
 import java.io.PrintWriter;
@@ -28,10 +27,7 @@ _cls_upload_monitor0_instances.put(root, root);
 _cls_upload_monitor0 parent; //to remain null - this class does not have a parent!
 int no_automata = 1;
  public int postCount =0 ;
- public int confirmedAlertCount =0 ;
- public ApiHandler apiHandler =new ApiHandler ();
- public EventTrace[] traces ;
- public EventTrace lastTrace =null ;
+ public MonitorFunctions f =new MonitorFunctions ();
 
 public static void initialize(){}
 //inheritance could not be used because of the automatic call to super()
@@ -61,7 +57,7 @@ return 0;
 
 public void _call(String _info, int... _event){
 synchronized(_cls_upload_monitor0_instances){
-_performLogic_thingprop(_info, _event);
+_performLogic_upload_prop(_info, _event);
 }
 }
 
@@ -89,88 +85,79 @@ else if (no_automata < 0)
 }catch(Exception ex){ex.printStackTrace();}
 }
 
-int _state_id_thingprop = 115;
+int _state_id_upload_prop = 183;
 
-public void _performLogic_thingprop(String _info, int... _event) {
+public void _performLogic_upload_prop(String _info, int... _event) {
 
-_cls_upload_monitor0.pw.println("[thingprop]AUTOMATON::> thingprop("+") STATE::>"+ _string_thingprop(_state_id_thingprop, 0));
+_cls_upload_monitor0.pw.println("[upload_prop]AUTOMATON::> upload_prop("+") STATE::>"+ _string_upload_prop(_state_id_upload_prop, 0));
 _cls_upload_monitor0.pw.flush();
 
 if (0==1){}
-else if (_state_id_thingprop==115){
+else if (_state_id_upload_prop==183){
 		if (1==0){}
-		else if ((_occurredEvent(_event,180/*scrape*/))){
+		else if ((_occurredEvent(_event,290/*scrape*/))){
 		_cls_upload_monitor0.pw .println ("SCRAPED");
 
-		_state_id_thingprop = 112;//moving to state upload
-		_goto_thingprop(_info);
+		_state_id_upload_prop = 180;//moving to state upload
+		_goto_upload_prop(_info);
 		}
 }
-else if (_state_id_thingprop==114){
+else if (_state_id_upload_prop==182){
 		if (1==0){}
-		else if ((_occurredEvent(_event,184/*postAlert*/)) && (postCount <5 &&postCount ==confirmedAlertCount )){
+		else if ((_occurredEvent(_event,294/*postAlert*/))){
 		postCount ++;
 _cls_upload_monitor0.pw .println ("POST "+postCount );
 
-		_state_id_thingprop = 113;//moving to state checkPost
-		_goto_thingprop(_info);
+		_state_id_upload_prop = 181;//moving to state checkPost
+		_goto_upload_prop(_info);
 		}
-		else if ((_occurredEvent(_event,184/*postAlert*/))){
-		postCount ++;
-_cls_upload_monitor0.pw .println ("INVALID STATE: Attempted to post "+postCount +"times, "+confirmedAlertCount +" received.");
-
-		_state_id_thingprop = 111;//moving to state badUpload
-		_goto_thingprop(_info);
-		}
-		else if ((_occurredEvent(_event,186/*purgeAlerts*/)) && (postCount ==5 &&postCount ==confirmedAlertCount )){
+		else if ((_occurredEvent(_event,296/*purgeAlerts*/)) && (postCount ==5 )){
 		_cls_upload_monitor0.pw .println ("Attempted purge after "+postCount +" posts.");
 
-		_state_id_thingprop = 109;//moving to state purge
-		_goto_thingprop(_info);
-		}
-		else if ((_occurredEvent(_event,186/*purgeAlerts*/)) && (postCount ==5 &&postCount ==confirmedAlertCount )){
-		_cls_upload_monitor0.pw .println ("INVALID STATE: Attempted to purge after "+postCount +"post/s, "+confirmedAlertCount +" received.");
-
-		_state_id_thingprop = 111;//moving to state badUpload
-		_goto_thingprop(_info);
+		_state_id_upload_prop = 177;//moving to state purge
+		_goto_upload_prop(_info);
 		}
 }
-else if (_state_id_thingprop==112){
+else if (_state_id_upload_prop==180){
 		if (1==0){}
-		else if ((_occurredEvent(_event,182/*uploadResults*/))){
+		else if ((_occurredEvent(_event,292/*uploadResults*/))){
 		_cls_upload_monitor0.pw .println ("UPLOAD");
+f .getLastEventType ();
 
-		_state_id_thingprop = 114;//moving to state post
-		_goto_thingprop(_info);
+		_state_id_upload_prop = 182;//moving to state post
+		_goto_upload_prop(_info);
 		}
 }
-else if (_state_id_thingprop==113){
+else if (_state_id_upload_prop==181){
 		if (1==0){}
-		else if ((_occurredEvent(_event,188/*close*/))){
-		traces =apiHandler .getTraces ();
-lastTrace =traces [traces .length -1 ];
-confirmedAlertCount =lastTrace .systemState .alerts .length ;
+		else if ((_occurredEvent(_event,298/*close*/)) && (f .getLastEventType ()==0 &&postCount <=5 )){
+		
+		_state_id_upload_prop = 182;//moving to state post
+		_goto_upload_prop(_info);
+		}
+		else if ((_occurredEvent(_event,298/*close*/))){
+		_cls_upload_monitor0.pw .println ("Bad Upload");
 
-		_state_id_thingprop = 114;//moving to state post
-		_goto_thingprop(_info);
+		_state_id_upload_prop = 179;//moving to state badUpload
+		_goto_upload_prop(_info);
 		}
 }
 }
 
-public void _goto_thingprop(String _info){
-_cls_upload_monitor0.pw.println("[thingprop]MOVED ON METHODCALL: "+ _info +" TO STATE::> " + _string_thingprop(_state_id_thingprop, 1));
+public void _goto_upload_prop(String _info){
+_cls_upload_monitor0.pw.println("[upload_prop]MOVED ON METHODCALL: "+ _info +" TO STATE::> " + _string_upload_prop(_state_id_upload_prop, 1));
 _cls_upload_monitor0.pw.flush();
 }
 
-public String _string_thingprop(int _state_id, int _mode){
+public String _string_upload_prop(int _state_id, int _mode){
 switch(_state_id){
-case 115: if (_mode == 0) return "scrape"; else return "scrape";
-case 114: if (_mode == 0) return "post"; else return "post";
-case 112: if (_mode == 0) return "upload"; else return "upload";
-case 113: if (_mode == 0) return "checkPost"; else return "checkPost";
-case 109: if (_mode == 0) return "purge"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  purge";
-case 111: if (_mode == 0) return "badUpload"; else return "!!!SYSTEM REACHED BAD STATE!!! badUpload "+new _BadStateExceptionupload_monitor().toString()+" ";
-case 110: if (_mode == 0) return "terminate"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  terminate";
+case 183: if (_mode == 0) return "scrape"; else return "scrape";
+case 182: if (_mode == 0) return "post"; else return "post";
+case 180: if (_mode == 0) return "upload"; else return "upload";
+case 181: if (_mode == 0) return "checkPost"; else return "checkPost";
+case 177: if (_mode == 0) return "purge"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  purge";
+case 179: if (_mode == 0) return "badUpload"; else return "!!!SYSTEM REACHED BAD STATE!!! badUpload "+new _BadStateExceptionupload_monitor().toString()+" ";
+case 178: if (_mode == 0) return "terminate"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  terminate";
 default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
 }
 }
