@@ -1,15 +1,27 @@
-[thingprop]AUTOMATON::> thingprop() STATE::>init
+[website_prop]AUTOMATON::> website_prop() STATE::>init
+[website_prop]AUTOMATON::> website_prop() STATE::>init
+[website_prop]AUTOMATON::> website_prop() STATE::>init
 Navigating to site
-[thingprop]MOVED ON METHODCALL: void main.MarketAlertNavigator.goToSite() TO STATE::> loggedOut
-[thingprop]AUTOMATON::> thingprop() STATE::>loggedOut
+[website_prop]MOVED ON METHODCALL: void main.MarketAlertNavigator.goToSite() TO STATE::> loggedOut
+[website_prop]AUTOMATON::> website_prop() STATE::>loggedOut
 Login
-[thingprop]MOVED ON METHODCALL: void main.MarketAlertNavigator.login(String) TO STATE::> loggedIn
-[thingprop]AUTOMATON::> thingprop() STATE::>loggedIn
-Viewed alerts
-[thingprop]MOVED ON METHODCALL: void main.MarketAlertNavigator.goToAlerts() TO STATE::> atAlerts
-[thingprop]AUTOMATON::> thingprop() STATE::>atAlerts
-Logout
-[thingprop]MOVED ON METHODCALL: void main.MarketAlertNavigator.logout() TO STATE::> loggedOut
-[thingprop]AUTOMATON::> thingprop() STATE::>loggedOut
-Teardown
-[thingprop]MOVED ON METHODCALL: void main.MarketAlertNavigator.teardown() TO STATE::> (((SYSTEM REACHED AN ACCEPTED STATE)))  cleanup
+[website_prop]MOVED ON METHODCALL: void main.MarketAlertNavigator.login(String) TO STATE::> loggedIn
+[website_prop]AUTOMATON::> website_prop() STATE::>loggedIn
+INVALID LOGIN
+[website_prop]MOVED ON METHODCALL: void main.MarketAlertNavigator.goToAlerts() TO STATE::> atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
+[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts

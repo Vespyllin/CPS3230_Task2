@@ -1,6 +1,7 @@
 package main;
 
 import java.io.IOException;
+
 import java.util.Random;
 
 import org.junit.Test;
@@ -107,8 +108,6 @@ public class ExecutorModel implements FsmModel{
 		EventTrace[] traces = apiHandler.getTraces(); 
 		
 		int offset = 1 + (traces.length == 2? 1:0);
-		
-		System.out.print(traces.length + " offset: " + offset);
 			
 		Assert.assertEquals("User did not log in", 5, traces[traces.length-offset].eventLogType);
 		Assert.assertTrue("User is not logged in", traces[traces.length-offset].systemState.loggedIn);
@@ -137,11 +136,13 @@ public class ExecutorModel implements FsmModel{
 		System.out.println("LOG OUT");
 		
 		modelState = ExecutorStates.LOGGINGOUT;
+		
+		sut2.logout();
 
 		EventTrace[] traces = apiHandler.getTraces(); 
 		
-		Assert.assertFalse("User did not log out", traces.length == 0);
-		Assert.assertEquals("User did not log out", 6, traces[traces.length-1].eventLogType);
+		Assert.assertFalse("User did not log out (no traces)", traces.length == 0);
+		Assert.assertEquals("User did not log out ( event: " + traces[traces.length-1].eventLogType + ")", 6, traces[traces.length-1].eventLogType);
 		Assert.assertFalse("User is not logged out", traces[traces.length-1].systemState.loggedIn);
 	}
 	
@@ -164,20 +165,20 @@ public class ExecutorModel implements FsmModel{
 		
 		Assert.assertTrue("Traces are empty after purging alerts", traces.length != 0);
 		Assert.assertEquals("API handler did not erase alerts as expected by the model", alertsUp, traces[traces.length-1].systemState.alerts.length);
-
 	}
 	
 	@Test
 	public void ExecutorModelRunner() {
-		final GreedyTester tester = new GreedyTester(new ExecutorModel()); //Creates a test generator that can generate random walks. A greedy random walk gives preference to transitions that have never been taken before. Once all transitions out of a state have been taken, it behaves the same as a random walk.
-		tester.setRandom(new Random()); //Allows for a random path each time the model is run.
-		tester.buildGraph(); //Builds a model of our FSM to ensure that the coverage metrics are correct.
-		tester.addListener(new StopOnFailureListener()); //This listener forces the test class to stop running as soon as a failure is encountered in the model.
-		tester.addListener("verbose"); //This gives you printed statements of the transitions being performed along with the source and destination states.
-		tester.addCoverageMetric(new TransitionPairCoverage()); //Records the transition pair coverage i.e. the number of paired transitions traversed during the execution of the test.
-		tester.addCoverageMetric(new StateCoverage()); //Records the state coverage i.e. the number of states which have been visited during the execution of the test.
-		tester.addCoverageMetric(new ActionCoverage()); //Records the number of @Action methods which have ben executed during the execution of the test.
-		tester.generate(12); //Generates 500 transitions
-		tester.printCoverage(); //Prints the coverage metrics specified above.
+		final GreedyTester tester = new GreedyTester(new ExecutorModel());
+		
+		tester.setRandom(new Random()); 
+		tester.buildGraph(); 
+		tester.addListener(new StopOnFailureListener()); 
+		tester.addListener("verbose"); 
+		tester.addCoverageMetric(new TransitionPairCoverage()); 
+		tester.addCoverageMetric(new StateCoverage()); 
+		tester.addCoverageMetric(new ActionCoverage()); 
+		tester.generate(12);
+		tester.printCoverage(); 
 	}
 }

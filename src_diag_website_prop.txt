@@ -1,0 +1,13 @@
+digraph _logic_website_prop {
+rankdir=LR;
+node [shape = doublecircle]; exit cleanup;
+node [shape = circle]; loggedOut loggedIn atAlerts init;
+node [shape = point]; _s_s;
+_s_s -> init;
+init -> loggedOut [ label = "(1) goToSite\\\\f . getLastEventType ( ) ; System . out . println ( \" Navigating to site \" ) ; "];
+loggedIn -> atAlerts [ label = "(1) goToAlerts\\f . getLastEventType ( ) == 5 \\System . out . println ( \" Viewed alerts \" ) ; "];
+loggedIn -> atAlerts [ label = "(2) goToAlerts\\\\System . out . println ( \" INVALID LOGIN \" ) ; "];
+loggedOut -> loggedIn [ label = "(1) login\\\\System . out . println ( \" Login \" ) ; "];
+loggedOut -> cleanup [ label = "(2) teardown\\f . getLastEventType ( ) == 6 \\System . out . println ( \" Teardown \" ) ; "];
+atAlerts -> loggedOut [ label = "(1) logout\\f . getLastEventType ( ) == 7 \\System . out . println ( \" Logout \" ) ; "];
+}

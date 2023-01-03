@@ -1,4 +1,8 @@
 [upload_prop]AUTOMATON::> upload_prop() STATE::>scrape
+[upload_prop]AUTOMATON::> upload_prop() STATE::>scrape
+[upload_prop]AUTOMATON::> upload_prop() STATE::>scrape
+[upload_prop]AUTOMATON::> upload_prop() STATE::>scrape
+[upload_prop]AUTOMATON::> upload_prop() STATE::>scrape
 SCRAPED
 [upload_prop]MOVED ON METHODCALL: boolean main.Executor.scrape() TO STATE::> upload
 [upload_prop]AUTOMATON::> upload_prop() STATE::>upload
@@ -30,6 +34,66 @@ POST 5
 [upload_prop]AUTOMATON::> upload_prop() STATE::>checkPost
 [upload_prop]MOVED ON METHODCALL: void org.apache.hc.client5.http.impl.classic.CloseableHttpClient.close() TO STATE::> post
 [upload_prop]AUTOMATON::> upload_prop() STATE::>post
+[upload_prop]AUTOMATON::> upload_prop() STATE::>post
+[upload_prop]AUTOMATON::> upload_prop() STATE::>post
+[upload_prop]AUTOMATON::> upload_prop() STATE::>post
+[upload_prop]AUTOMATON::> upload_prop() STATE::>post
 Attempted purge after 5 posts.
 [upload_prop]MOVED ON METHODCALL: boolean main.ApiHandler.purgeAlerts() TO STATE::> (((SYSTEM REACHED AN ACCEPTED STATE)))  purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
+[upload_prop]AUTOMATON::> upload_prop() STATE::>purge
 [upload_prop]AUTOMATON::> upload_prop() STATE::>purge
