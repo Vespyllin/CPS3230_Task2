@@ -1,8 +1,0 @@
-digraph _logic_test_prop {
-rankdir=LR;
-node [shape = circle]; normalstate _normalstate;
-node [shape = point]; _s_s;
-_s_s -> _normalstate;
-normalstate -> normalstate [ label = "(1) inc\\\\i += 1 ; System . out . println ( \" inc  \" + i ) ; "];
-_normalstate -> normalstate [ label = "(1) inc\\\\i += 1 ; System . out . println ( \" inc  \" + i ) ; "];
-}
