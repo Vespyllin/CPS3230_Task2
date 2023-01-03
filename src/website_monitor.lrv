@@ -18,7 +18,6 @@ GLOBAL {
 	PROPERTY website_prop{
 		STATES{
 			ACCEPTING{
-				exit
 				cleanup
 			}
 			NORMAL{
@@ -43,8 +42,7 @@ GLOBAL {
 			loggedOut -> loggedIn 
 			[
 				login
-				\
-				\
+				\\
 				System.out.println("Login");
 			]
 

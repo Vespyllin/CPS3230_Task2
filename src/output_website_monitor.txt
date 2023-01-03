@@ -1,27 +1,3 @@
 [website_prop]AUTOMATON::> website_prop() STATE::>init
 [website_prop]AUTOMATON::> website_prop() STATE::>init
 [website_prop]AUTOMATON::> website_prop() STATE::>init
-Navigating to site
-[website_prop]MOVED ON METHODCALL: void main.MarketAlertNavigator.goToSite() TO STATE::> loggedOut
-[website_prop]AUTOMATON::> website_prop() STATE::>loggedOut
-Login
-[website_prop]MOVED ON METHODCALL: void main.MarketAlertNavigator.login(String) TO STATE::> loggedIn
-[website_prop]AUTOMATON::> website_prop() STATE::>loggedIn
-INVALID LOGIN
-[website_prop]MOVED ON METHODCALL: void main.MarketAlertNavigator.goToAlerts() TO STATE::> atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts
-[website_prop]AUTOMATON::> website_prop() STATE::>atAlerts

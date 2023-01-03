@@ -7,7 +7,7 @@ node [shape = point]; _s_s;
 _s_s -> scrape;
 scrape -> upload [ label = "(1) scrape\\\\System . out . println ( \" SCRAPED \" ) ; "];
 post -> checkPost [ label = "(1) postAlert\\\\postCount ++ ; System . out . println ( \" POST  \" + postCount ) ; "];
-post -> purge [ label = "(2) purgeAlerts\\postCount == 5 \\System . out . println ( \" Attempted purge after  \" + postCount + \"  posts. \" ) ; "];
+post -> purge [ label = "(2) purgeAlerts\\postCount == 5 \\System . out . println ( \" PURGE \" ) ; "];
 upload -> post [ label = "(1) uploadResults\\\\System . out . println ( \" UPLOAD \" ) ; f . getLastEventType ( ) ; "];
 checkPost -> post [ label = "(1) close\\f . getLastEventType ( ) == 0 && postCount <= 5 "];
 checkPost -> badUpload [ label = "(2) close\\\\System . out . println ( \" Bad Upload \" ) ; "];

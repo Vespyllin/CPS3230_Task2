@@ -16,9 +16,7 @@ public class MonitoredRunner {
 			navigator.logInValid();
 			navigator.goToAlerts();
 			navigator.logout();
-			
 	    } catch (Exception e) {
-	    	
 	    	System.out.println("CRASHED");
 	    	System.out.println(e);
 	    } finally {	    	

@@ -1,6 +1,6 @@
 digraph _logic_website_prop {
 rankdir=LR;
-node [shape = doublecircle]; exit cleanup;
+node [shape = doublecircle]; cleanup;
 node [shape = circle]; loggedOut loggedIn atAlerts init;
 node [shape = point]; _s_s;
 _s_s -> init;

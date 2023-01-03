@@ -15,7 +15,7 @@ import nz.ac.waikato.modeljunit.coverage.StateCoverage;
 import nz.ac.waikato.modeljunit.coverage.TransitionPairCoverage;
 import junit.framework.Assert;
 
-public class ExecutorModel implements FsmModel{
+public class ModelledRunner implements FsmModel{
 	public enum ExecutorStates {
 		STANDBY,
 		SCRAPING,
@@ -68,7 +68,6 @@ public class ExecutorModel implements FsmModel{
 		modelData = new ItemData[5];
 		
 		Assert.assertEquals("Scraper did not return the 5 results as expected by the model", modelData.length, sut1.getResults().length);
-
 	}
 	
 	public boolean uploadGuard() {
@@ -168,8 +167,8 @@ public class ExecutorModel implements FsmModel{
 	}
 	
 	@Test
-	public void ExecutorModelRunner() {
-		final GreedyTester tester = new GreedyTester(new ExecutorModel());
+	public void ModelRunner() {
+		final GreedyTester tester = new GreedyTester(new ModelledRunner());
 		
 		tester.setRandom(new Random()); 
 		tester.buildGraph(); 

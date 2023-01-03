@@ -20,7 +20,6 @@ GLOBAL {
 		STATES{
 			ACCEPTING{
 				purge
-				terminate
 			}
 			BAD{
 				badUpload
@@ -31,12 +30,12 @@ GLOBAL {
 				post
 			}
 			STARTING{
-				scrape
+				init
 			}
 		}
 		
 		TRANSITIONS {
-			scrape -> upload [scrape\\System.out.println("SCRAPED");]
+			init -> upload [scrape\\System.out.println("SCRAPED");]
 			upload -> post 
 			[
 				uploadResults
@@ -76,7 +75,7 @@ GLOBAL {
 				\
 				postCount==5
 				\
-				System.out.println("Attempted purge after " + postCount + " posts.");
+				System.out.println("PURGE");
 			]
 		}
 	}

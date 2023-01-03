@@ -84,7 +84,7 @@ else if (no_automata < 0)
 }catch(Exception ex){ex.printStackTrace();}
 }
 
-int _state_id_website_prop = 189;
+int _state_id_website_prop = 208;
 
 public void _performLogic_website_prop(String _info, int... _event) {
 
@@ -92,52 +92,52 @@ _cls_website_monitor0.pw.println("[website_prop]AUTOMATON::> website_prop("+") S
 _cls_website_monitor0.pw.flush();
 
 if (0==1){}
-else if (_state_id_website_prop==189){
+else if (_state_id_website_prop==208){
 		if (1==0){}
-		else if ((_occurredEvent(_event,300/*goToSite*/))){
+		else if ((_occurredEvent(_event,330/*goToSite*/))){
 		f .getLastEventType ();
 _cls_website_monitor0.pw .println ("Navigating to site");
 
-		_state_id_website_prop = 186;//moving to state loggedOut
+		_state_id_website_prop = 205;//moving to state loggedOut
 		_goto_website_prop(_info);
 		}
 }
-else if (_state_id_website_prop==187){
+else if (_state_id_website_prop==206){
 		if (1==0){}
-		else if ((_occurredEvent(_event,302/*goToAlerts*/)) && (f .getLastEventType ()==5 )){
+		else if ((_occurredEvent(_event,332/*goToAlerts*/)) && (f .getLastEventType ()==5 )){
 		_cls_website_monitor0.pw .println ("Viewed alerts");
 
-		_state_id_website_prop = 188;//moving to state atAlerts
+		_state_id_website_prop = 207;//moving to state atAlerts
 		_goto_website_prop(_info);
 		}
-		else if ((_occurredEvent(_event,302/*goToAlerts*/))){
+		else if ((_occurredEvent(_event,332/*goToAlerts*/))){
 		_cls_website_monitor0.pw .println ("INVALID LOGIN");
 
-		_state_id_website_prop = 188;//moving to state atAlerts
+		_state_id_website_prop = 207;//moving to state atAlerts
 		_goto_website_prop(_info);
 		}
 }
-else if (_state_id_website_prop==186){
+else if (_state_id_website_prop==205){
 		if (1==0){}
-		else if ((_occurredEvent(_event,304/*login*/))){
+		else if ((_occurredEvent(_event,334/*login*/))){
 		_cls_website_monitor0.pw .println ("Login");
 
-		_state_id_website_prop = 187;//moving to state loggedIn
+		_state_id_website_prop = 206;//moving to state loggedIn
 		_goto_website_prop(_info);
 		}
-		else if ((_occurredEvent(_event,308/*teardown*/)) && (f .getLastEventType ()==6 )){
+		else if ((_occurredEvent(_event,338/*teardown*/)) && (f .getLastEventType ()==6 )){
 		_cls_website_monitor0.pw .println ("Teardown");
 
-		_state_id_website_prop = 185;//moving to state cleanup
+		_state_id_website_prop = 204;//moving to state cleanup
 		_goto_website_prop(_info);
 		}
 }
-else if (_state_id_website_prop==188){
+else if (_state_id_website_prop==207){
 		if (1==0){}
-		else if ((_occurredEvent(_event,306/*logout*/)) && (f .getLastEventType ()==7 )){
+		else if ((_occurredEvent(_event,336/*logout*/)) && (f .getLastEventType ()==7 )){
 		_cls_website_monitor0.pw .println ("Logout");
 
-		_state_id_website_prop = 186;//moving to state loggedOut
+		_state_id_website_prop = 205;//moving to state loggedOut
 		_goto_website_prop(_info);
 		}
 }
@@ -150,12 +150,11 @@ _cls_website_monitor0.pw.flush();
 
 public String _string_website_prop(int _state_id, int _mode){
 switch(_state_id){
-case 184: if (_mode == 0) return "exit"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  exit";
-case 189: if (_mode == 0) return "init"; else return "init";
-case 185: if (_mode == 0) return "cleanup"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  cleanup";
-case 187: if (_mode == 0) return "loggedIn"; else return "loggedIn";
-case 186: if (_mode == 0) return "loggedOut"; else return "loggedOut";
-case 188: if (_mode == 0) return "atAlerts"; else return "atAlerts";
+case 208: if (_mode == 0) return "init"; else return "init";
+case 204: if (_mode == 0) return "cleanup"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  cleanup";
+case 206: if (_mode == 0) return "loggedIn"; else return "loggedIn";
+case 205: if (_mode == 0) return "loggedOut"; else return "loggedOut";
+case 207: if (_mode == 0) return "atAlerts"; else return "atAlerts";
 default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
 }
 }

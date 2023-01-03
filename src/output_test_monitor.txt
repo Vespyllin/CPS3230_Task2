@@ -1,0 +1,12 @@
+[test_prop]AUTOMATON::> test_prop() STATE::>_normalstate
+inc 1
+[test_prop]MOVED ON METHODCALL: void main.temp.inc() TO STATE::> normalstate
+[test_prop]AUTOMATON::> test_prop() STATE::>normalstate
+inc 2
+[test_prop]MOVED ON METHODCALL: void main.temp.inc() TO STATE::> normalstate
+[test_prop]AUTOMATON::> test_prop() STATE::>normalstate
+inc 3
+[test_prop]MOVED ON METHODCALL: void main.temp.inc() TO STATE::> normalstate
+[test_prop]AUTOMATON::> test_prop() STATE::>normalstate
+inc 4
+[test_prop]MOVED ON METHODCALL: void main.temp.inc() TO STATE::> normalstate
