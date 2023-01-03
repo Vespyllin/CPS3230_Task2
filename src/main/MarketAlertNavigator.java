@@ -49,9 +49,9 @@ public class MarketAlertNavigator {
     }
 
     public void goToAlerts() {
-    	if (driver.getCurrentUrl() == marketUrl + "Alerts/List")
-    		return;
-    	    	
+//    	if (driver.getCurrentUrl() == marketUrl + "Alerts/List")
+//    		return;
+//    	    	
         WebElement alertsNav = driver.findElement(By.linkText("My Alerts"));
         alertsNav.click();
     }

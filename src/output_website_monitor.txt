@@ -1,0 +1,12 @@
+[thingprop]AUTOMATON::> thingprop() STATE::>init
+[thingprop]AUTOMATON::> thingprop() STATE::>init
+[thingprop]AUTOMATON::> thingprop() STATE::>init
+Navigating to site
+[thingprop]MOVED ON METHODCALL: void main.MarketAlertNavigator.goToSite() TO STATE::> loggedOut
+[thingprop]AUTOMATON::> thingprop() STATE::>loggedOut
+[thingprop]AUTOMATON::> thingprop() STATE::>loggedOut
+[thingprop]AUTOMATON::> thingprop() STATE::>loggedOut
+[thingprop]AUTOMATON::> thingprop() STATE::>loggedOut
+[thingprop]AUTOMATON::> thingprop() STATE::>loggedOut
+[thingprop]AUTOMATON::> thingprop() STATE::>loggedOut
+[thingprop]AUTOMATON::> thingprop() STATE::>loggedOut
